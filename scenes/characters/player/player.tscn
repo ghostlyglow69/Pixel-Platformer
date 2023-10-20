@@ -1,0 +1,47 @@
+[gd_scene load_steps=7 format=3 uid="uid://bew2x1q7cbfbb"]
+
+[ext_resource type="Script" path="res://scenes/characters/player/player.gd" id="1_5gt3g"]
+[ext_resource type="Texture2D" uid="uid://b3j3kgqu5ujsa" path="res://resourses/graphics/tilemaps/tilemap-characters.png" id="1_gmrgm"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_glvt5"]
+size = Vector2(20, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t54fx"]
+atlas = ExtResource("1_gmrgm")
+region = Rect2(0, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tuj4k"]
+atlas = ExtResource("1_gmrgm")
+region = Rect2(25, 0, 24, 24)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_nog3u"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t54fx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tuj4k")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 10.0
+}]
+
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_5gt3g")
+
+[node name="PlayerCollision" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_glvt5")
+
+[node name="PlayerAnimations" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_nog3u")
+animation = &"walk"
+flip_h = true
+
+[node name="PlayerCamera" type="Camera2D" parent="."]
+limit_left = 0
+limit_top = 0
+limit_right = 450
+limit_bottom = 270
+position_smoothing_enabled = true

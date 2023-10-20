@@ -1,0 +1,40 @@
+[gd_scene load_steps=4 format=3 uid="uid://dokmikae4r8dj"]
+
+[ext_resource type="Texture2D" uid="uid://b3i5onrec7pal" path="res://resourses/graphics/tilemaps/tilemap-backgrounds.png" id="1_mh68s"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rwts7"]
+texture = ExtResource("1_mh68s")
+separation = Vector2i(1, 1)
+texture_region_size = Vector2i(24, 24)
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+6:0/0 = 0
+7:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+5:1/0 = 0
+6:1/0 = 0
+7:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+4:2/0 = 0
+5:2/0 = 0
+6:2/0 = 0
+7:2/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_xykq2"]
+tile_size = Vector2i(24, 24)
+sources/0 = SubResource("TileSetAtlasSource_rwts7")
+
+[node name="TilemapBackgrounds" type="TileMap"]
+tile_set = SubResource("TileSet_xykq2")
+format = 2

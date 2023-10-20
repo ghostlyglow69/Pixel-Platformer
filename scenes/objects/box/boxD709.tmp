@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://sejngaelvhsy"]
+
+[ext_resource type="Script" path="res://scenes/objects/box/box.gd" id="1_u6wud"]
+[ext_resource type="PackedScene" uid="uid://dchgde5ri2uv3" path="res://scenes/tilemaps/tilemap/tilemap.tscn" id="2_42385"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wm62j"]
+size = Vector2(20, 18)
+
+[node name="Box" type="Area2D"]
+gravity_point_unit_distance = 68.367
+script = ExtResource("1_u6wud")
+
+[node name="BoxCollision" type="CollisionShape2D" parent="."]
+position = Vector2(9, 9)
+shape = SubResource("RectangleShape2D_wm62j")
+
+[node name="Tilemap" parent="." instance=ExtResource("2_42385")]
+layer_0/tile_data = PackedInt32Array(0, 393216, 1)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://y58o6rwdplty"]
+
+[ext_resource type="PackedScene" uid="uid://dchgde5ri2uv3" path="res://scenes/tilemaps/tilemap/tilemap.tscn" id="1_3fcos"]
+[ext_resource type="Script" path="res://scenes/objects/spike/spike.gd" id="1_ci4r4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0bup5"]
+size = Vector2(18, 9)
+
+[node name="Spike" type="Area2D"]
+script = ExtResource("1_ci4r4")
+
+[node name="SpikeCollision" type="CollisionShape2D" parent="."]
+position = Vector2(9, 13.5)
+shape = SubResource("RectangleShape2D_0bup5")
+
+[node name="Tilemap" parent="." instance=ExtResource("1_3fcos")]
+layer_0/tile_data = PackedInt32Array(0, 524288, 3)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
